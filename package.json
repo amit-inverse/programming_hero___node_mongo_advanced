@@ -1,0 +1,20 @@
+{
+  "name": "programming_hero___node_mongo_advanced",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1_sync_aysnc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon 3_3_index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.18.1",
+    "underscore": "^1.13.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
