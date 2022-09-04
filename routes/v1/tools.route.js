@@ -1,14 +1,17 @@
 const express = require('express');
+const toolsController = require('../../controllers/tools.controller');
+const limiter = require('../../middlewares/limiter');
+const viewCount = require('../../middlewares/viewCount');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('tools found...');
-});
+// router.get('/', (req, res) => {
+//     res.send('tools found...');
+// });
 
-router.post('/', (req, res) => {
-    res.send('tool added');
-});
+// router.post('/', (req, res) => {
+//     res.send('tool added');
+// });
 
 router
     .route('/')
@@ -27,9 +30,7 @@ router
      * @apiError {Unauthenticated 401}
      * @apiError {Forbidden 400}
      */
-    .get((req, res) => {
-        res.send('tools found...');
-    })
+    .get(toolsController.getAllTools)
     /**
      * @api {post} /tools
      * @apiDescription Get all tools
@@ -45,8 +46,8 @@ router
      * @apiError {Unauthenticated 401}
      * @apiError {Forbidden 400}
      */
-    .post((req, res) => {
-        res.send('tool added...');
-    });
+    .post(toolsController.saveTool);
+
+router.route('/:id').get(viewCount, limiter, toolsController.getToolDetail).patch(toolsController.updateToolDetail).delete(toolsController.deleteTool);
 
 module.exports = router;

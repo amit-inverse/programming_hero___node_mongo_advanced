@@ -1,0 +1,23 @@
+PUT
+Replaces the data,
+if not found, creates a new data
+
+PATCH
+Modifies the data,
+if not found, doesn't do anything
+
+let tool = {
+    id: 1,
+    name: "hammer"
+}
+
+const newTool = {name: "paper"}
+
+// put
+tool = {name: "paper"}
+
+// patch
+tool = {
+    id: 1,
+    name: "paper"
+}

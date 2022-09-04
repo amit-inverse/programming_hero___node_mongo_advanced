@@ -1,0 +1,11 @@
+An Express application is essentially a series of middleware function calls...
+
+1. A middleware is a function
+2. A middleware functions has access to 3 things:
+    - Request object (req)
+    - Response object (res)
+    - the next middleware function (next)
+3. A middleware function can:
+    - send response
+    - call the next middleware in the stack
+4. There are 5 types of middlewares
